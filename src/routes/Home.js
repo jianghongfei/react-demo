@@ -15,6 +15,11 @@ import Dashboard from './Dashboard';
 import styles from './Home.less';
 
 class Home extends Component {
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    collapsed: PropTypes.bool.isRequired,
+  };
+
   onCollapse = (collapsed) => {
     this.props.dispatch({
       type: 'global/changeLayoutCollapsed',
@@ -86,15 +91,6 @@ class Home extends Component {
   }
 }
 
-Home.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  collapsed: PropTypes.bool.isRequired,
-};
-
-export default connect((store) => {
-  console.log(store);
-
-  return {
-    collapsed: store.global.collapsed,
-  };
-})(Home);
+export default connect(store => ({
+  collapsed: store.global.collapsed,
+}))(Home);

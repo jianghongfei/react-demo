@@ -7,7 +7,14 @@ import styles from './Login.less';
 
 const FormItem = Form.Item;
 
-class NormalLoginForm extends React.Component {
+class Login extends React.Component {
+  static propTypes = {
+    form: PropTypes.shape({
+      validateFields: PropTypes.func.isRequired,
+      getFieldDecorator: PropTypes.func.isRequired,
+    }).isRequired,
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -47,17 +54,6 @@ class NormalLoginForm extends React.Component {
   }
 }
 
-NormalLoginForm.propTypes = {
-  form: PropTypes.shape({
-    validateFields: PropTypes.func.isRequired,
-    getFieldDecorator: PropTypes.func.isRequired,
-  }).isRequired,
-};
-
-export default connect((store) => {
-  console.log(store);
-
-  return {
-    collapsed: store.global.collapsed,
-  };
-})(Form.create()(NormalLoginForm));
+export default connect(store => ({
+  collapsed: store.global.collapsed,
+}))(Form.create()(Login));
