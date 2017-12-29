@@ -2,7 +2,7 @@ export const LAYOUT_COLLAPSED = 'global/changeLayoutCollapsed';
 
 export const FETCH_NOTICES = 'global/fetchNotices';
 
-export function noticesRequested() {
+export function fetchNotices() {
   return {
     type: FETCH_NOTICES,
   };
