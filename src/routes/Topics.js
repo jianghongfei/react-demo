@@ -35,7 +35,7 @@ const Topics = ({ match }) => (
 
 Topics.propTypes = {
   match: PropTypes.shape({
-    url: PropTypes.string.isRequired,
+    url: PropTypes.string,
   }).isRequired,
 };
 

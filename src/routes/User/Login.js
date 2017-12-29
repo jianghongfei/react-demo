@@ -10,8 +10,8 @@ const FormItem = Form.Item;
 class Login extends React.Component {
   static propTypes = {
     form: PropTypes.shape({
-      validateFields: PropTypes.func.isRequired,
-      getFieldDecorator: PropTypes.func.isRequired,
+      validateFields: PropTypes.func,
+      getFieldDecorator: PropTypes.func,
     }).isRequired,
   };
 

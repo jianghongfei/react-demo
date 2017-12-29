@@ -10,8 +10,8 @@ const Topic = ({ match }) => (
 Topic.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      topicId: PropTypes.string.isRequired,
-    }).isRequired,
+      topicId: PropTypes.string,
+    }),
   }).isRequired,
 };
 

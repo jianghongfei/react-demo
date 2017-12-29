@@ -1,4 +1,11 @@
-export default (state = {}, action) => {
+export default (state = {
+  currentUser: {
+    name: 'Serati Ma',
+    avatar: 'https://gw.alipayobjects.com/zos/rmsportal/keeYtvRpGFVVKOOiOZDS.png',
+    userid: '00000001',
+    notifyCount: 12,
+  },
+}, action) => {
   switch (action.type) {
     case 'SET_USER_NAME':
       return { ...state, name: action.payload };

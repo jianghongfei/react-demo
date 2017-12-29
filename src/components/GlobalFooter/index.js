@@ -2,15 +2,15 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import './index.less';
+import styles from './index.less';
 
 const GlobalFooter = ({ className, links, copyright }) => {
-  const clsString = classNames('globalFooter', className);
+  const clsString = classNames(styles.globalFooter, className);
   return (
     <div className={clsString}>
       {
         links && (
-          <div className="links">
+          <div className={styles.links}>
             {links.map(link => (
               <a
                 key={link.title}
@@ -23,15 +23,23 @@ const GlobalFooter = ({ className, links, copyright }) => {
           </div>
         )
       }
-      {copyright && <div className="copyright">{copyright}</div>}
+      {copyright && <div className={styles.copyright}>{copyright}</div>}
     </div>
   );
 };
 
 GlobalFooter.propTypes = {
-  className: PropTypes.func.isRequired,
-  links: PropTypes.arrayOf(PropTypes.string).isRequired,
-  copyright: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  links: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    href: PropTypes.string,
+    blankTarget: PropTypes.bool,
+  })).isRequired,
+  copyright: PropTypes.element.isRequired,
+};
+
+GlobalFooter.defaultProps = {
+  className: undefined,
 };
 
 export default GlobalFooter;

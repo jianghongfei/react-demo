@@ -48,7 +48,7 @@ const User = ({ match }) => (
 
 User.propTypes = {
   match: PropTypes.shape({
-    url: PropTypes.string.isRequired,
+    url: PropTypes.string,
   }).isRequired,
 };
 
